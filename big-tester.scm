@@ -1,0 +1,43 @@
+#lang racket
+(require eopl)
+(require "mp6-1.scm")
+(require "message-type.scm")
+
+(define the-thing (dynamic-place "tester-place.scm" 'loop))
+
+(thread-send the-recipient (filename-msg "big"))
+
+(define messages
+  (list
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   6 1  the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name4")   1 2  the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   2 3  the-thing))
+    (thread-send the-recipient (query-msg (cons "Name101" "Name6")   4 4  the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   3 5  the-thing))
+    (thread-send the-recipient (query-msg (cons "Name200" "Name500") 2 6  the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   6 7  the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   3 8  the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   3 9  the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   2 10 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   1 11 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   1 12 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   3 13 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   4 14 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   2 15 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   6 16 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   7 17 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   3 18 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   3 19 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   4 20 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   2 21 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   6 22 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   4 23 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   2 24 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   6 25 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   4 26 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   2 27 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   6 28 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   2 29 the-thing))
+    (thread-send the-recipient (query-msg (cons "Name1"   "Name2")   2 30 the-thing))))
+
+(place-channel-get the-thing)
